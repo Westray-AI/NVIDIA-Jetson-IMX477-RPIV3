@@ -43,6 +43,25 @@ This is the easiest and fastest way to install the driver. In order to install t
 
 * [Installing the kernel and dtb debians](https://developer.ridgerun.com/wiki/index.php?title=Raspberry_Pi_HQ_camera_IMX477_Linux_driver_for_Jetson#Installing_the_Driver_-_Option_A:_Debian_Packages_.28Recommended.29)
 
+#### Jetson Nano
+
+```sh
+# Download the packages
+wget https://github.com/Westray-AI/NVIDIA-Jetson-IMX477-RPIV3/releases/download/nano-deb-4.9.140/nvidia-l4t-kernel-dtbs_4.9.140-tegra-32.4.3-20200625213809_arm64.deb
+wget https://github.com/Westray-AI/NVIDIA-Jetson-IMX477-RPIV3/releases/download/nano-deb-4.9.140/nvidia-l4t-kernel_4.9.140-tegra-32.4.3-20200625213809_arm64.deb
+
+# Install the debian packages in your board:
+sudo apt-get install --reinstall ./nvidia-l4t-kernel_4.9.140-tegra-32.4.3-20200625213809_arm64.deb
+sudo apt-get install --reinstall ./nvidia-l4t-kernel-dtbs_4.9.140-tegra-32.4.3-20200625213809_arm64.deb
+
+# Enable the dtb changes by modifying the /boot/extlinux/extlinux.conf file:
+echo "FDT /boot/dtb/tegra210-p3448-0000-p3449-0000-b00.dtb" | sudo tee -a /boot/extlinux/extlinux.conf
+
+# Reboot your board:
+sudo reboot
+
+```
+
 ### OPTION B: Applying the patches on the sources
 
 In order to apply the patch on the JetPack 4.4 sources with Xavier NX and Nano support, you must perform the following instructions:
