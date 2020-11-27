@@ -45,6 +45,8 @@ This is the easiest and fastest way to install the driver. In order to install t
 
 #### Jetson Nano
 
+NOTE: check that your kernel version is the same as those in the driver name (4.9.10). Installation of the drivers bricked the device with the latest Jetson Nano ISO image (Jetpack 4.4.2) but worked using the ISO imae with Jetpack 4.4
+
 ```sh
 # Download the packages
 wget https://github.com/Westray-AI/NVIDIA-Jetson-IMX477-RPIV3/releases/download/nano-deb-4.9.140/nvidia-l4t-kernel-dtbs_4.9.140-tegra-32.4.3-20200625213809_arm64.deb
